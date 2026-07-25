@@ -1,75 +1,158 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html,
-body {
-  overflow: hidden;
-  background: #16000a;
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#16000a;
 }
 
-body {
-  -webkit-font-smoothing: antialiased;
-  color: #ffdada;
+body{
+    position:relative;
+    -webkit-font-smoothing:antialiased;
+    color:#ffdada;
 }
 
-.h1text {
-  font-family: "Lilita One", sans-serif;
-  font-weight: 100;
-  font-size: 2rem;
-  font-style: normal;
+.h1text{
+    font-family:"Lilita One",sans-serif;
+    font-weight:100;
+    font-style:normal;
+    font-size:clamp(1.3rem,5vw,2rem);
+    line-height:1.3;
 }
 
-.webgl {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  outline: none;
+.webgl{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    outline:none;
 }
 
-body::before {
-  content: "";
-  position: absolute;
-  border: 8px solid;
-  inset: 1rem;
-  z-index: 100;
-  pointer-events: none;
+body::before{
+    content:"";
+    position:absolute;
+    inset:clamp(8px,2vw,16px);
+    border:clamp(4px,0.7vw,8px) solid;
+    z-index:100;
+    pointer-events:none;
 }
 
-h1 {
-  position: absolute;
-  top: 10vh;
-  left: 2.5rem;
-  right: 1rem;
-  text-align: center;
-  font-family: ador-hairline, sans-serif;
-  font-weight: 900;
-  font-size: max(1rem, 3vh);
+h1{
+    position:absolute;
+    top:5vh;
+    left:1rem;
+    right:1rem;
+    text-align:center;
+    font-family:ador-hairline,sans-serif;
+    font-weight:900;
+    font-size:clamp(1rem,4vw,2rem);
+    line-height:1.4;
+    z-index:50;
 }
 
-button {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  height: 12vh;
-  width: 12vh;
-  transform: translateY(2vh);
-  right: 0;
-  margin: auto;
-  -webkit-appearance: none;
-  background: transparent;
-  color: inherit;
-  border: none;
-  cursor: pointer;
+button{
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+
+    width:clamp(55px,12vw,80px);
+    height:clamp(55px,12vw,80px);
+
+    transform:translateY(1vh);
+
+    appearance:none;
+    -webkit-appearance:none;
+
+    background:transparent;
+    color:inherit;
+    border:none;
+    cursor:pointer;
+    z-index:50;
 }
 
-svg {
-  width: 3.5vh;
+svg{
+    width:clamp(20px,5vw,36px);
+    height:auto;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width:768px){
+
+    h1{
+        top:4vh;
+        left:1rem;
+        right:1rem;
+        font-size:1.5rem;
+    }
+
+    button{
+        width:65px;
+        height:65px;
+    }
+
+    svg{
+        width:26px;
+    }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:480px){
+
+    h1{
+        top:3vh;
+        left:14px;
+        right:14px;
+        font-size:1.15rem;
+    }
+
+    .h1text{
+        font-size:1.25rem;
+    }
+
+    button{
+        width:55px;
+        height:55px;
+        transform:translateY(0);
+    }
+
+    svg{
+        width:22px;
+    }
+
+    body::before{
+        inset:8px;
+        border-width:4px;
+    }
+}
+
+/* ---------- Small Phones ---------- */
+
+@media (max-width:360px){
+
+    h1{
+        font-size:1rem;
+        top:2.5vh;
+    }
+
+    button{
+        width:50px;
+        height:50px;
+    }
+
+    svg{
+        width:20px;
+    }
 }
